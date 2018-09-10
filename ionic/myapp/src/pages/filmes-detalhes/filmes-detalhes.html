@@ -1,0 +1,50 @@
+<!--
+  Generated template for the FilmesDetalhesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalhes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card *ngIf = "filme">
+
+        <ion-item>
+          <ion-avatar item-start>
+            <img [src]="'https://image.tmdb.org/t/p/w200/'+filme.poster_path">
+          </ion-avatar>
+          <h2 class="details_title">{{ filme.original_title }} </h2>
+          <p class="details_date">{{ filme.release_date }}</p>
+        </ion-item>
+        <!--Sempre que quiser concatenar uma variavel com um elemento HTML, deve se colocar o colchete no inicio e no final,
+        como mostrado abaixo [src]-->
+        <img [src]="'https://image.tmdb.org/t/p/w300/'+filme.backdrop_path">
+    
+        <ion-card-content>
+          <p>{{ filme.overview }}</p>
+          <ion-row>
+            <ion-col center text-center>
+          
+              <ion-note>
+                Nota IMDB: {{ filme.vote_average }}
+              </ion-note>
+            </ion-col>
+            <ion-col center text-center>
+            
+              <ion-note>
+                Produzido em: {{ filme.production_countries[0].name }} {{ filme.production_companies[0].name }}
+              </ion-note>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+    
+    
+      </ion-card>
+</ion-content>
