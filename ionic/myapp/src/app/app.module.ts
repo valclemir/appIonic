@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http'; 
 import { HttpClientModule } from '@angular/common/http'; 
+import { VideoPlayer } from '@ionic-native/video-player'
 //import { FeedPageModule } from '../pages/feed/feed.module';
 //import { IntroPageModule } from '../pages/intro/intro.module';
 import { FeedPage } from '../pages/feed/feed';
@@ -37,7 +38,8 @@ import { FilmesDetalhesPage } from '../pages/filmes-detalhes/filmes-detalhes';
     ConfiguracoesPage,
     SobrePage,
     PerfilPage,
-    FilmesDetalhesPage
+    FilmesDetalhesPage,
+    //VideoPlayer
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { FilmesDetalhesPage } from '../pages/filmes-detalhes/filmes-detalhes';
     //FeedPageModule,
     //IntroPageModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    //VideoPlayer
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,7 +62,8 @@ import { FilmesDetalhesPage } from '../pages/filmes-detalhes/filmes-detalhes';
     ConfiguracoesPage,
     SobrePage,
     PerfilPage,
-    FilmesDetalhesPage
+    FilmesDetalhesPage,
+    //VideoPlayer
   ],
   providers: [
     StatusBar,
@@ -67,6 +71,7 @@ import { FilmesDetalhesPage } from '../pages/filmes-detalhes/filmes-detalhes';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     //MoovieProvider,
     HttpModule,
+    VideoPlayer
     
   
   ]

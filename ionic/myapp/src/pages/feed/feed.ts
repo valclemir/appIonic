@@ -51,7 +51,7 @@ export class FeedPage {
   doInfinite(infiniteScroll) {
     this.page ++;
     this.infiniteScroll = infiniteScroll;
-    this.carregandoFilmes();
+    this.carregandoFilmes(true);
   }
 
   
@@ -105,23 +105,22 @@ export class FeedPage {
            //Convert o texto cru da api para json(Transforma a resposta em objeto json)
            const objeto_retorno = JSON.parse(response);
            //let objeto_retorno = JSON.parse(response._body || '{}');
-           this.Lista_filmes = objeto_retorno.results;
-           console.log(this.Lista_filmes);
+           //this.Lista_filmes = objeto_retorno.results;
+           console.log("Teste");
            this.fechaCarregando();
            if(this.isRefreshing){
              this.refresher.complete();
              //se completou o refresh, ele não está mais carregando, portando, isRefreshing vai ser false
              this.isRefreshing = false;
 
-             if(newpage){
-              this.Lista_filmes = this.Lista_filmes.concat(objeto_retorno.results);   
-              console.log(this.page);
-              console.log(this.Lista_filmes);
-              this.infiniteScroll.complete();
-            }
-             else{
-              this.Lista_filmes = objeto_retorno.results;
-             }
+           }
+           
+           if(newpage){
+            this.Lista_filmes = this.Lista_filmes.concat(objeto_retorno.results);   
+            this.infiniteScroll.complete();
+          }
+           else{
+            this.Lista_filmes = objeto_retorno.results;
            }
          },error => {
            console.log(error);
